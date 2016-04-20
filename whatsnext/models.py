@@ -3,9 +3,14 @@ from __future__ import unicode_literals
 from django.db import models
 
 class Task(models.Model):
-    task_id = models.IntegerField(max_length=1000, primary_key=True)
+    id = models.IntegerField(primary_key=True)
     user_id = models.ForeignKey(User, on_delete=models.CASCADE)
     task_description = models.CharField(max_length=1000)
+    priority = models.IntegerField()
+    # Later probably want to have a separate categories table to allow
+    # for users to create their own categories.
+    # But for now just have dumb integer field to keep the dream alive.
+    category = models.IntegerField()
     created = models.DateField()
     status = models.IntegerField()
 
@@ -25,15 +30,15 @@ class Task(models.Model):
 
 
 class User(models.Model):
-    user_id = models.IntegerField(max_length=1000, primary_key=True)
+    id = models.IntegerField(primary_key=True)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.CharField(max_length=100)
     password = models.CharField(max_length=50)
-    phone_number = models.CharField(max_length=50)
+    phone_number = models.CharField(max_length=15)
 
     def __str__(self):              
-        return self.user_id
+        return self.id
 
     def _get_full_name(self):
         "Returns the user's full name."
