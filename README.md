@@ -4,7 +4,7 @@
 * They will be able to create, edit, delete, categorise and keep track of their tasks.
 
 **Tech Stack:**
-* Back-end: Django and PostgreSQL
+* Back-end: Python/Django and PostgreSQL
 * Front-end: React.js/Flux
 * APIs: SendGrid Email
 
