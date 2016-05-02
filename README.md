@@ -12,3 +12,9 @@
 This needs to be filled in as we make a skeleton
 But once we have enough for a skeleton, this should have
 setup instructions for any developers.
+
+* Front-end setup instructions:
+* Navigate to resources/whatsnext
+* Run `npm install`
+* Run `npm start`
+* load `index.html` in a browser
