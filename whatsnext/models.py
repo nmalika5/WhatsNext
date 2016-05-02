@@ -3,15 +3,15 @@ from __future__ import unicode_literals
 from django.db import models
 import datetime
 
-STATUSES = ( 
+STATUSES = {
 
-  (1, 'Open'), 
+  1: "Open", 
 
-  (2, 'In Progress'), 
+  2: "In Progress", 
 
-  (3, 'Completed'), 
+  3: "Completed", 
 
-) 
+} 
 class User(models.Model):
     id = models.IntegerField(primary_key=True)
     first_name = models.CharField(max_length=50)
@@ -46,14 +46,10 @@ class Task(models.Model):
         return self.task_description
 
     def status_status(self):
-        "Returns the task's status."        
-        import datetime        
-        if self.status == 0:
-            return "Open"
-        elif self.status == 1:
-            return "In Progress"
-        elif self.status == 2:
-            return "Completed"
+        "Returns the task's status."   
+        
+        return STATUSES[self.status]     
+        
 
 class TaskJoin(models.Model):
     """A join table for many-to-many relationships between tasks"""
