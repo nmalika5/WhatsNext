@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3e*_=rx14_6j23eu6v+za%-8!hf)v_hmk(yjla@&agj_a33w5='
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'whatsnext.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'todoapp',
+        'USER': 'malika',
+        'PASSWORD': 'psqldjango54',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
